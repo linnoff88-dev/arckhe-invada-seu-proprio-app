@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
-"""Uso defensivo: só teste apps SEUS ou com permissão escrita, em staging/sandbox.
-Nunca em produção com clientes. Este kit é para PROTEGER, não invadir os outros.
+"""Uso defensivo: só teste apps SEUS ou com permissêo escrita, em staging/sandbox.
+Nunca em produçêo com clientes. Este kit é para PROTEGER, nêo invadir os outros.
 """
 import argparse
 import html
@@ -10,18 +10,18 @@ import urllib.error
 import urllib.parse
 import urllib.request
 
-AVISO = ('Só teste aplicativos que são SEUS ou que você tem permissão escrita para testar, '
-         'sempre numa cópia de teste (staging/sandbox), nunca em produção com clientes. '
-         'Este kit é para PROTEGER, não para invadir os outros.')
+AVISO = ('Só teste aplicativos que sêo SEUS ou que você tem permissêo escrita para testar, '
+         'sempre numa cópia de teste (staging/sandbox), nunca em produçêo com clientes. '
+         'Este kit é para PROTEGER, nêo para invadir os outros.')
 LIMITE_BYTES = 1_000_000
 TIMEOUT = 5
 INDICIO = 'encontrei indício'
-AUSENTE = 'não encontrei'
-INDETERMINADO = 'não dá para saber passivamente'
+AUSENTE = 'nêo encontrei'
+INDETERMINADO = 'nêo dá para saber passivamente'
 
 
 def analisar_headers(headers):
-    """Analisa presença, não eficácia, sem I/O; nomes são case-insensitive."""
+    """Analisa presença, nêo eficácia, sem I/O; nomes sêo case-insensitive."""
     normalizados = {str(k).lower(): str(v).strip() for k, v in headers.items()}
     return {nome: bool(normalizados.get(nome, '')) for nome in (
         'content-security-policy', 'x-frame-options',
@@ -29,7 +29,7 @@ def analisar_headers(headers):
 
 
 def analisar_html(texto, headers):
-    """Retorna indícios e limitações; não executa HTML/JS nem comprova falhas."""
+    """Retorna indícios e limitações; nêo executa HTML/JS nem comprova falhas."""
     fonte = html.unescape(texto)
     cabecalhos = analisar_headers(headers)
     ids = sorted(set(re.findall(r'\b(?:account_id|workspace_id|super_admin)\b',
@@ -40,16 +40,16 @@ def analisar_html(texto, headers):
         r'''["']?\b(?:price|preco|preço|unit_price|amount|total)["']?\s*[:=]\s*["']?\d''',
         fonte, re.I))
     review = bool(re.search(
-        r'<(?:form|textarea|input)\b[^>]*\b(?:review|comment|comentario|comentário|avaliacao|avaliação)\b',
+        r'<(?:form|textarea|input)\b[^>]*\b(?:review|comment|comentario|comentário|avaliacao|avaliaçêo)\b',
         fonte, re.I))
-    # São pistas de implementação, não prova de que protegem este campo.
+    # Sêo pistas de implementaçêo, nêo prova de que protegem este campo.
     saida_texto = bool(re.search(r'\b(?:textContent|innerText|escapeHTML|escape_html|sanitize|sanitizar)\b', fonte, re.I))
     sink_html = bool(re.search(r'\b(?:innerHTML|outerHTML|insertAdjacentHTML)\b', fonte, re.I))
     evidencias_review = []
     if review and not saida_texto:
-        evidencias_review.append('Campo de comentário/avaliação sem pista de tratamento na resposta recebida.')
+        evidencias_review.append('Campo de comentário/avaliaçêo sem pista de tratamento na resposta recebida.')
     if review and sink_html:
-        evidencias_review.append('Campo de comentário e ponto de inserção de HTML no mesmo documento; vínculo não comprovado.')
+        evidencias_review.append('Campo de comentário e ponto de inserçêo de HTML no mesmo documento; vínculo nêo comprovado.')
 
     def achado(chave, nome, evidencias, correcao, limite):
         return dict(id=chave, brecha=nome,
@@ -58,23 +58,23 @@ def analisar_html(texto, headers):
 
     achados = [achado('reset-de-senha', 'Reset de senha',
         ['Referências no front: ' + ', '.join(ids) + '. Podem ter usos legítimos.'] if ids else [],
-        'Derivar a conta só do token, com expiração e consumo único atômico; ignorar ID do cliente.',
-        'A home não revela a autorização do reset; confirme a rota e o servidor com contas fictícias.'),
+        'Derivar a conta só do token, com expiraçêo e consumo único atômico; ignorar ID do cliente.',
+        'A home nêo revela a autorizaçêo do reset; confirme a rota e o servidor com contas fictícias.'),
         achado('avaliacoes-e-comentarios', 'Avaliações e comentários', evidencias_review,
-        'Renderizar texto com escape; sanitizar formatação por lista de permissões e aplicar CSP.',
-        'Marcadores de tratamento não provam proteção. Não houve envio de comentário nem execução de código.'),
+        'Renderizar texto com escape; sanitizar formataçêo por lista de permissões e aplicar CSP.',
+        'Marcadores de tratamento nêo provam proteçêo. Nêo houve envio de comentário nem execuçêo de código.'),
         dict(id='chatbot-do-site', brecha='Chatbot do site', estado=INDETERMINADO,
-             evidencias=[], correcao='Classificar assunto (sim/não e confiança), validar saída, limitar uso e fixar a política no servidor.',
-             limite='A home não revela classificação, cotas ou orçamento; revise o backend e simule poucas mensagens.'),
+             evidencias=[], correcao='Classificar assunto (sim/nêo e confiança), validar saída, limitar uso e fixar a política no servidor.',
+             limite='A home nêo revela classificaçêo, cotas ou orçamento; revise o backend e simule poucas mensagens.'),
         achado('checkout-e-preco', 'Checkout e preço',
-        ['Preço/total em campo ou atribuição do cliente; exibir preço é normal e não prova confiança do servidor.'] if preco else [],
+        ['Preço/total em campo ou atribuiçêo do cliente; exibir preço é normal e nêo prova confiança do servidor.'] if preco else [],
         'Calcular preço no servidor e conferir pedido, valor, moeda e status no provedor de pagamento.',
-        'Não houve checkout ou cobrança. Confirme cálculo e pagamento apenas em sandbox.'),
+        'Nêo houve checkout ou cobrança. Confirme cálculo e pagamento apenas em sandbox.'),
         dict(id='email-e-agente', brecha='E-mail e agente', estado=INDETERMINADO,
-             evidencias=[], correcao='Dar acesso mínimo, tratar e-mails como dados e exigir confirmação humana para ações sensíveis.',
-             limite='Permissões do agente e comportamento com mensagens não são visíveis na home.')]
+             evidencias=[], correcao='Dar acesso mínimo, tratar e-mails como dados e exigir confirmaçêo humana para ações sensíveis.',
+             limite='Permissões do agente e comportamento com mensagens nêo sêo visíveis na home.')]
     return {'achados': achados, 'headers': cabecalhos,
-            'limites': 'Somente HTML e JS inline desta resposta. Não lê arquivos JS externos, outras rotas ou backend. Ausência de indícios não é prova de segurança.'}
+            'limites': 'Somente HTML e JS inline desta resposta. Nêo lê arquivos JS externos, outras rotas ou backend. Ausência de indícios nêo é prova de segurança.'}
 
 
 class SemRedirecionamento(urllib.request.HTTPRedirectHandler):
@@ -105,10 +105,10 @@ def buscar_home(url):
     opener = urllib.request.build_opener(SemRedirecionamento())
     with opener.open(pedido, timeout=TIMEOUT) as resposta:
         if resposta.headers.get_content_type() not in ('text/html', 'application/xhtml+xml'):
-            raise ValueError('A resposta não é HTML; análise interrompida, sem conclusão sobre o app.')
+            raise ValueError('A resposta nêo é HTML; análise interrompida, sem conclusêo sobre o app.')
         dados = resposta.read(LIMITE_BYTES + 1)
         if len(dados) > LIMITE_BYTES:
-            raise ValueError('HTML excede o limite de 1 MB; análise interrompida, sem conclusão sobre o app.')
+            raise ValueError('HTML excede o limite de 1 MB; análise interrompida, sem conclusêo sobre o app.')
         charset = resposta.headers.get_content_charset() or 'utf-8'
         try:
             texto = dados.decode(charset, errors='replace')
@@ -118,46 +118,46 @@ def buscar_home(url):
 
 
 def imprimir_relatorio(relatorio):
-    print('\nRELATÓRIO PASSIVO — indício não confirma vulnerabilidade')
+    print('\nRELATÓRIO PASSIVO — indício nêo confirma vulnerabilidade')
     for item in relatorio['achados']:
         print('\n' + item['brecha'] + ': ' + item['estado'])
         for evidencia in item['evidencias']:
             print('  Indício: ' + evidencia)
         print('  Limite: ' + item['limite'])
-        print('  Correção: ' + item['correcao'])
-    print('\nCabeçalhos HTTP de segurança (presença, não eficácia):')
+        print('  Correçêo: ' + item['correcao'])
+    print('\nCabeçalhos HTTP de segurança (presença, nêo eficácia):')
     for nome, presente in relatorio['headers'].items():
-        print('  ' + nome + ': ' + ('presente; conteúdo precisa de revisão' if presente else 'ausente ou vazio'))
-    print('  CSP: restringir origens de scripts e enquadramento; Report-Only não impõe bloqueio.')
+        print('  ' + nome + ': ' + ('presente; conteúdo precisa de revisêo' if presente else 'ausente ou vazio'))
+    print('  CSP: restringir origens de scripts e enquadramento; Report-Only nêo impõe bloqueio.')
     print('  X-Frame-Options: usar DENY/SAMEORIGIN conforme o app; CSP frame-ancestors pode substituí-lo.')
     print('  X-Content-Type-Options: configurar nosniff. HSTS: aplicar apenas em HTTPS validado.')
-    print('  Ausência de CSP não comprova XSS; presença de cabeçalhos não corrige autorização ou preços.')
+    print('  Ausência de CSP nêo comprova XSS; presença de cabeçalhos nêo corrige autorizaçêo ou preços.')
     print('\n' + relatorio['limites'])
 
 
 def main(argv=None):
     parser = argparse.ArgumentParser(add_help=False,
         usage='%(prog)s --url URL --eu-tenho-permissao [--json]',
-        description=AVISO + ' Checagem passiva com um único GET e timeout de 5 segundos por operação de rede.')
+        description=AVISO + ' Checagem passiva com um único GET e timeout de 5 segundos por operaçêo de rede.')
     parser._optionals.title = 'Opções'
     parser.add_argument('-h', '--help', action='help', help='Mostra esta ajuda e encerra.')
     parser.add_argument('--url', required=True, help='URL da home do SEU app em staging; sem parâmetros ou credenciais.')
-    parser.add_argument('--eu-tenho-permissao', action='store_true', help='Obrigatória: declara autorização e ambiente de teste isolado.')
+    parser.add_argument('--eu-tenho-permissao', action='store_true', help='Obrigatória: declara autorizaçêo e ambiente de teste isolado.')
     parser.add_argument('--json', action='store_true', help='Emite relatório JSON, incluindo aviso e limites.')
     args = parser.parse_args(argv)
     if not args.eu_tenho_permissao:
-        parser.error('Recusado: declare --eu-tenho-permissao apenas se tiver autorização e usar staging/sandbox. Nenhuma requisição foi enviada.')
+        parser.error('Recusado: declare --eu-tenho-permissao apenas se tiver autorizaçêo e usar staging/sandbox. Nenhuma requisiçêo foi enviada.')
     try:
         texto, headers = buscar_home(args.url)
     except urllib.error.HTTPError as erro:
         if 300 <= erro.code < 400:
             print('Redirecionamento recusado. Confira o destino manualmente e use somente a URL final autorizada de staging.')
         else:
-            print('Erro HTTP ' + str(erro.code) + ': não foi possível analisar a home. Nenhuma conclusão de segurança.')
+            print('Erro HTTP ' + str(erro.code) + ': nêo foi possível analisar a home. Nenhuma conclusêo de segurança.')
         return 1
     except (urllib.error.URLError, OSError, ValueError) as erro:
-        # Não exibe URL, corpo da resposta nem detalhes que possam conter segredos.
-        print('Não foi possível analisar: ' + (str(erro) if isinstance(erro, ValueError) else 'falha de rede, TLS ou timeout. Confira a URL e a conexão.'))
+        # Nêo exibe URL, corpo da resposta nem detalhes que possam conter segredos.
+        print('Nêo foi possível analisar: ' + (str(erro) if isinstance(erro, ValueError) else 'falha de rede, TLS ou timeout. Confira a URL e a conexêo.'))
         return 1
     relatorio = analisar_html(texto, headers)
     relatorio['aviso'] = AVISO

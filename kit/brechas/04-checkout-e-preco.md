@@ -1,4 +1,4 @@
-> **Uso defensivo:** só teste aplicativos que são SEUS ou que você tem permissão escrita para testar, sempre numa cópia de teste (staging/sandbox), nunca em produção com clientes. Este kit é para PROTEGER, não para invadir os outros.
+> **Uso defensivo:** só teste aplicativos que sêo SEUS ou que você tem permissêo escrita para testar, sempre numa cópia de teste (staging/sandbox), nunca em produçêo com clientes. Este kit é para PROTEGER, nêo para invadir os outros.
 
 # Checkout e preço
 
@@ -7,18 +7,18 @@
 O navegador é controlado pelo comprador e qualquer valor enviado por ele pode mudar.
 A brecha aparece quando o servidor usa esse valor como preço final do pedido.
 Um produto de 100 pode acabar registrado como pago por 1.
-Mostrar o preço correto na página não protege a cobrança nem a entrega.
+Mostrar o preço correto na página nêo protege a cobrança nem a entrega.
 
 ## Como saber se o seu app tem
 
 1. Configure pagamento em sandbox e um produto fictício de 100 unidades monetárias.
-2. Observe no painel de rede se o checkout envia preço, total ou desconto. Isso é um indício, não comprovação.
-3. Só em sandbox, reenvie uma única solicitação do produto de teste alterando o preço informado para 1. O servidor deve ignorá-lo ou rejeitá-lo.
-4. Confira o pedido no banco e a cobrança de teste. Nenhum pagamento real ou entrega real deve ocorrer. Revise também a confirmação de pagamento.
+2. Observe no painel de rede se o checkout envia preço, total ou desconto. Isso é um indício, nêo comprovaçêo.
+3. Só em sandbox, reenvie uma única solicitaçêo do produto de teste alterando o preço informado para 1. O servidor deve ignorá-lo ou rejeitá-lo.
+4. Confira o pedido no banco e a cobrança de teste. Nenhum pagamento real ou entrega real deve ocorrer. Revise também a confirmaçêo de pagamento.
 
 ## Como corrigir
 
-Receba produto e quantidade; consulte preços e regras de desconto no servidor. Use unidades monetárias inteiras (centavos), valide quantidade e moeda. Grave o total esperado antes de abrir a cobrança. Na confirmação, autentique a notificação e consulte o provedor, conferindo pedido, valor, moeda e status. Trate eventos repetidos sem repetir entrega.
+Receba produto e quantidade; consulte preços e regras de desconto no servidor. Use unidades monetárias inteiras (centavos), valide quantidade e moeda. Grave o total esperado antes de abrir a cobrança. Na confirmaçêo, autentique a notificaçêo e consulte o provedor, conferindo pedido, valor, moeda e status. Trate eventos repetidos sem repetir entrega.
 
 ```text
 criar_pedido(usuario, produto_id, quantidade):
@@ -44,7 +44,7 @@ confirmar(evento):
 
 ## Como confirmar que corrigiu
 
-- Alterar preço no cliente não reduz o valor calculado no servidor.
+- Alterar preço no cliente nêo reduz o valor calculado no servidor.
 - Quantidade negativa, fracionada ou acima do limite é recusada.
-- Pagamento pendente ou com valor/moeda divergente não libera entrega.
-- Repetir o mesmo evento não duplica entrega; o checkout legítimo em sandbox continua funcionando.
+- Pagamento pendente ou com valor/moeda divergente nêo libera entrega.
+- Repetir o mesmo evento nêo duplica entrega; o checkout legítimo em sandbox continua funcionando.

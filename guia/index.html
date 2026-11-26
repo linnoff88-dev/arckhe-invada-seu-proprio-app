@@ -134,7 +134,7 @@
     <div>
       <span class="chip">Kit defensivo · teste o SEU app</span>
       <h1>Invada você mesmo antes que <span class="amb">invadam</span> seu app</h1>
-      <p class="lead">Construiu um app com IA e não sabe o que ficou exposto? Rode a checagem, siga as cinco brechas e feche as portas — tudo numa cópia de teste, sem tocar na produção.</p>
+      <p class="lead">Construiu um app com IA e nêo sabe o que ficou exposto? Rode a checagem, siga as cinco brechas e feche as portas — tudo numa cópia de teste, sem tocar na produçêo.</p>
       <div class="cta">
         <a class="btn" href="#guia">Começar o guia</a>
         <a class="btn ghost" href="https://github.com/inematds/invada-seu-proprio-app" target="_blank" rel="noopener">Ver no GitHub</a>
@@ -149,7 +149,7 @@
      Quem nunca ouviu falar do projeto tem que entender so lendo este paragrafo. -->
 <section id="resumo" class="resumo"><div class="wrap">
   <span class="chip">Em resumo</span>
-  <p>Invada seu próprio app é um kit de revisão defensiva com um verificador, cinco guias de brechas e prompts para organizar os resultados. É para quem construiu um app com IA e consegue editar o projeto, mas não trabalha com segurança todos os dias. Ele ajuda a procurar sinais de falhas, corrigir as regras do app e conferir o resultado antes de publicar. Para usar, você precisa de uma cópia isolada do seu app, dados inventados, duas contas fictícias e Python 3.</p>
+  <p>Invada seu próprio app é um kit de revisêo defensiva com um verificador, cinco guias de brechas e prompts para organizar os resultados. É para quem construiu um app com IA e consegue editar o projeto, mas nêo trabalha com segurança todos os dias. Ele ajuda a procurar sinais de falhas, corrigir as regras do app e conferir o resultado antes de publicar. Para usar, você precisa de uma cópia isolada do seu app, dados inventados, duas contas fictícias e Python 3.</p>
 </div></section>
 
 <section id="oque"><div class="wrap">
@@ -158,9 +158,9 @@
   <p class="sub">Um roteiro para revisar o seu app, corrigir uma falha por vez e registrar o que foi confirmado.</p>
   <figure style="margin:0 0 26px;border-radius:16px;overflow:hidden;border:1px solid var(--line);box-shadow:0 30px 80px -30px #000"><img src="assets/banner-grade.jpg" alt="Painel ilustrado das cinco brechas abordadas pelo kit defensivo" loading="lazy" style="width:100%;display:block"></figure> <!-- 2º banner (gerar-banner.sh --estilo grade --saida banner-grade); se falhou, remova esta figure -->
   <div class="grid g3">
-    <div class="card"><h3>🛡️ Checagem não destrutiva</h3><p>Um único pedido de leitura busca sinais no HTML e no JavaScript inline, sem login, formulários ou redirecionamentos.</p></div>
-    <div class="card"><h3>🛡️ Cinco brechas com correção</h3><p>Cada guia explica o problema, um cenário controlado, a correção e como confirmar o resultado.</p></div>
-    <div class="card"><h3>🛡️ Prompts prontos</h3><p>Organize um teste de invasão simulado e um relatório visual com evidências, limites e prioridades.</p></div>
+    <div class="card"><h3>🛡️ Checagem nêo destrutiva</h3><p>Um único pedido de leitura busca sinais no HTML e no JavaScript inline, sem login, formulários ou redirecionamentos.</p></div>
+    <div class="card"><h3>🛡️ Cinco brechas com correçêo</h3><p>Cada guia explica o problema, um cenário controlado, a correçêo e como confirmar o resultado.</p></div>
+    <div class="card"><h3>🛡️ Prompts prontos</h3><p>Organize um teste de invasêo simulado e um relatório visual com evidências, limites e prioridades.</p></div>
   </div>
 </div></section>
 
@@ -187,7 +187,7 @@ URL e rotas autorizadas
 Contas fictícias A e B
 E-mail e pagamento de teste
 Backup da cópia</pre></div>
-    <div class="card"><h3>Python 3</h3><p>Confira a instalação no terminal; não é necessário instalar pacotes adicionais.</p><pre><span class="k">python3</span> --version</pre></div>
+    <div class="card"><h3>Python 3</h3><p>Confira a instalaçêo no terminal; nêo é necessário instalar pacotes adicionais.</p><pre><span class="k">python3</span> --version</pre></div>
     <div class="card"><h3>Arquivos do kit</h3><p>Abra o terminal na raiz deste repositório, onde fica a pasta kit, e consulte as opções reais do verificador.</p><pre><span class="k">python3</span> kit/scripts/checa.py --help</pre></div>
   </div>
 </div></section>
@@ -199,13 +199,13 @@ Backup da cópia</pre></div>
 
   <div class="step"><div class="b">1</div><div>
     <h3>Prepare staging</h3>
-    <p>Leia <a href="https://github.com/inematds/invada-seu-proprio-app/blob/main/kit/COMECE-AQUI.md">COMECE AQUI</a>. Registre autorização, URL, rotas permitidas e responsável. Confirme os pré-requisitos acima; nunca use produção.</p>
+    <p>Leia <a href="https://github.com/inematds/invada-seu-proprio-app/blob/main/kit/COMECE-AQUI.md">COMECE AQUI</a>. Registre autorizaçêo, URL, rotas permitidas e responsável. Confirme os pré-requisitos acima; nunca use produçêo.</p>
 <pre><span class="c"># Leia as instruções locais antes de testar</span>
 <span class="k">cat</span> kit/COMECE-AQUI.md</pre>
   </div></div>
   <div class="step"><div class="b">2</div><div>
     <h3>Rode a checagem</h3>
-    <p>Substitua a URL pela da sua cópia isolada. A flag declara sua permissão; o script não comprova propriedade nem isolamento. Ele faz um único GET, não segue redirecionamentos e só lê o HTML e o JavaScript inline da resposta. Indício não confirma falha; ausência de indícios não prova segurança.</p>
+    <p>Substitua a URL pela da sua cópia isolada. A flag declara sua permissêo; o script nêo comprova propriedade nem isolamento. Ele faz um único GET, nêo segue redirecionamentos e só lê o HTML e o JavaScript inline da resposta. Indício nêo confirma falha; ausência de indícios nêo prova segurança.</p>
 <pre><span class="k">python3</span> kit/scripts/checa.py --url <span class="s">https://staging.seu-app.test</span> --eu-tenho-permissao
 <span class="c"># Opcional: acrescente --json para saída estruturada</span></pre>
   </div></div>
@@ -216,12 +216,12 @@ Backup da cópia</pre></div>
 <span class="k">cat</span> kit/brechas/*.md</pre>
   </div></div>
   <div class="step"><div class="b">4</div><div>
-    <h3>Aplique a correção no servidor</h3>
-    <p>Adapte os pseudocódigos ao seu app, uma mudança por vez, incluindo rotas alternativas. Para comentários, revise também a renderização segura em todas as telas. Repita o cenário recusado e o fluxo legítimo; confira banco, logs e estado final.</p>
-<pre><span class="c"># Não existe comando universal de correção.</span>
+    <h3>Aplique a correçêo no servidor</h3>
+    <p>Adapte os pseudocódigos ao seu app, uma mudança por vez, incluindo rotas alternativas. Para comentários, revise também a renderizaçêo segura em todas as telas. Repita o cenário recusado e o fluxo legítimo; confira banco, logs e estado final.</p>
+<pre><span class="c"># Nêo existe comando universal de correçêo.</span>
 <span class="c"># Registro de cada achado:</span>
 brecha · rota · conta fictícia · evidência
-risco · correção · reteste · responsável</pre>
+risco · correçêo · reteste · responsável</pre>
   </div></div>
   <div class="step"><div class="b">5</div><div>
     <h3>Use o prompt numa cópia de teste</h3>
@@ -230,7 +230,7 @@ risco · correção · reteste · responsável</pre>
   </div></div>
   <div class="step"><div class="b">6</div><div>
     <h3>Confira o kit</h3>
-    <p>Execute os testes offline do verificador. Eles não validam a segurança do seu app: essa confirmação depende dos retestes em staging e das evidências de cada brecha.</p>
+    <p>Execute os testes offline do verificador. Eles nêo validam a segurança do seu app: essa confirmaçêo depende dos retestes em staging e das evidências de cada brecha.</p>
 <pre><span class="k">python3</span> kit/testes/run.py</pre>
   </div></div>
 </div></section>
@@ -238,13 +238,13 @@ risco · correção · reteste · responsável</pre>
 <section id="exemplos"><div class="wrap">
   <span class="chip">Exemplos</span>
   <h2>As cinco brechas</h2>
-  <p class="sub">Para cada uma, marque: aplicável, não aplicável ou pendente. Abra o documento para ver o cenário de teste e o reteste.</p>
+  <p class="sub">Para cada uma, marque: aplicável, nêo aplicável ou pendente. Abra o documento para ver o cenário de teste e o reteste.</p>
   <div class="grid g3">
-    <div class="card"><h3><a href="https://github.com/inematds/invada-seu-proprio-app/blob/main/kit/brechas/01-reset-de-senha.md">Reset de senha</a></h3><p>Um ID enviado pelo navegador pode escolher a conta errada na troca de senha. <strong>Correção:</strong> No servidor, derive a conta apenas do token, com expiração e consumo único, impedindo dois usos simultâneos.</p></div>
-    <div class="card"><h3><a href="https://github.com/inematds/invada-seu-proprio-app/blob/main/kit/brechas/02-avaliacoes-e-comentarios.md">Avaliações e comentários</a></h3><p>Conteúdo salvo pode ser interpretado como código no navegador de quem lê. <strong>Correção:</strong> Mostre comentários como texto e, se permitir formatação, filtre tags e atributos com um sanitizador baseado em uma lista de permissões.</p></div>
-    <div class="card"><h3><a href="https://github.com/inematds/invada-seu-proprio-app/blob/main/kit/brechas/03-chatbot-do-site.md">Chatbot do site</a></h3><p>Pedidos fora do negócio podem consumir sua cota de respostas. <strong>Correção:</strong> Valide o assunto antes da resposta e imponha no servidor limites de uso e orçamento independentes do modelo.</p></div>
-    <div class="card"><h3><a href="https://github.com/inematds/invada-seu-proprio-app/blob/main/kit/brechas/04-checkout-e-preco.md">Checkout e preço</a></h3><p>O servidor pode aceitar como preço final um valor alterado pelo comprador. <strong>Correção:</strong> Calcule o total no servidor e confira pedido, valor, moeda e status na confirmação do pagamento.</p></div>
-    <div class="card"><h3><a href="https://github.com/inematds/invada-seu-proprio-app/blob/main/kit/brechas/05-email-e-agente.md">E-mail e agente</a></h3><p>O agente pode confundir instruções recebidas por e-mail com ordens do dono. <strong>Correção:</strong> Trate mensagens como dados, limite permissões e exija confirmação humana para ações sensíveis no executor.</p></div>
+    <div class="card"><h3><a href="https://github.com/inematds/invada-seu-proprio-app/blob/main/kit/brechas/01-reset-de-senha.md">Reset de senha</a></h3><p>Um ID enviado pelo navegador pode escolher a conta errada na troca de senha. <strong>Correçêo:</strong> No servidor, derive a conta apenas do token, com expiraçêo e consumo único, impedindo dois usos simultâneos.</p></div>
+    <div class="card"><h3><a href="https://github.com/inematds/invada-seu-proprio-app/blob/main/kit/brechas/02-avaliacoes-e-comentarios.md">Avaliações e comentários</a></h3><p>Conteúdo salvo pode ser interpretado como código no navegador de quem lê. <strong>Correçêo:</strong> Mostre comentários como texto e, se permitir formataçêo, filtre tags e atributos com um sanitizador baseado em uma lista de permissões.</p></div>
+    <div class="card"><h3><a href="https://github.com/inematds/invada-seu-proprio-app/blob/main/kit/brechas/03-chatbot-do-site.md">Chatbot do site</a></h3><p>Pedidos fora do negócio podem consumir sua cota de respostas. <strong>Correçêo:</strong> Valide o assunto antes da resposta e imponha no servidor limites de uso e orçamento independentes do modelo.</p></div>
+    <div class="card"><h3><a href="https://github.com/inematds/invada-seu-proprio-app/blob/main/kit/brechas/04-checkout-e-preco.md">Checkout e preço</a></h3><p>O servidor pode aceitar como preço final um valor alterado pelo comprador. <strong>Correçêo:</strong> Calcule o total no servidor e confira pedido, valor, moeda e status na confirmaçêo do pagamento.</p></div>
+    <div class="card"><h3><a href="https://github.com/inematds/invada-seu-proprio-app/blob/main/kit/brechas/05-email-e-agente.md">E-mail e agente</a></h3><p>O agente pode confundir instruções recebidas por e-mail com ordens do dono. <strong>Correçêo:</strong> Trate mensagens como dados, limite permissões e exija confirmaçêo humana para ações sensíveis no executor.</p></div>
   </div>
 </div></section>
 
@@ -259,15 +259,15 @@ risco · correção · reteste · responsável</pre>
 <section id="roadmap"><div class="wrap">
   <span class="chip">Roadmap</span>
   <h2>Roadmap</h2>
-  <p class="sub">O kit documenta o que está disponível hoje; novas brechas e modo CI não estão implementados nem têm prazo definido.</p>
-  <div class="phase"><div class="tag">Hoje</div><div class="d"><strong>Cinco brechas + checagem passiva</strong><span>Guias de correção, verificador com saída em texto ou JSON, prompts de revisão e relatório, exemplos locais e testes offline.</span></div></div>
-  <div class="phase"><div class="tag">A avaliar</div><div class="d"><strong>Mais brechas e integração contínua</strong><span>Possíveis evoluções, sem compromisso de entrega: ampliar os cenários e um modo CI, para checagens automáticas a cada mudança no projeto.</span></div></div>
+  <p class="sub">O kit documenta o que está disponível hoje; novas brechas e modo CI nêo estêo implementados nem têm prazo definido.</p>
+  <div class="phase"><div class="tag">Hoje</div><div class="d"><strong>Cinco brechas + checagem passiva</strong><span>Guias de correçêo, verificador com saída em texto ou JSON, prompts de revisêo e relatório, exemplos locais e testes offline.</span></div></div>
+  <div class="phase"><div class="tag">A avaliar</div><div class="d"><strong>Mais brechas e integraçêo contínua</strong><span>Possíveis evoluções, sem compromisso de entrega: ampliar os cenários e um modo CI, para checagens automáticas a cada mudança no projeto.</span></div></div>
 </div></section>
 
 <footer>
   <div class="wrap">
     <div class="pill">Python</div><div class="pill">HTML</div><div class="pill">Sem dependências</div>
-    <p style="margin-top:18px">Invada seu próprio app · Uso defensivo: só o seu app ou com permissão escrita, em cópia de teste isolada; nunca em produção ·
+    <p style="margin-top:18px">Invada seu próprio app · Uso defensivo: só o seu app ou com permissêo escrita, em cópia de teste isolada; nunca em produçêo ·
       <a href="https://github.com/inematds/invada-seu-proprio-app">inematds/invada-seu-proprio-app</a> ·
       <a href="https://inema.club">INEMA.CLUB</a></p>
   </div>

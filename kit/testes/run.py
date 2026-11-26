@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
-"""Uso defensivo: só teste apps SEUS ou com permissão escrita em staging/sandbox.
-Nunca em produção com clientes. Este kit é para PROTEGER, não invadir os outros.
+"""Uso defensivo: só teste apps SEUS ou com permissêo escrita em staging/sandbox.
+Nunca em produçêo com clientes. Este kit é para PROTEGER, nêo invadir os outros.
 Testes offline: rede bloqueada por mock, inclusive em regressões do CLI.
 """
 import contextlib
@@ -78,7 +78,7 @@ class TestesLogica(unittest.TestCase):
     def test_vazio_nao_atesta_seguranca(self):
         r = checa.analisar_html('', {})
         self.assertNotIn(checa.INDICIO, [a['estado'] for a in r['achados']])
-        self.assertIn('não é prova', r['limites'])
+        self.assertIn('nêo é prova', r['limites'])
 
     def test_sem_permissao_nao_busca(self):
         with patch.object(checa, 'buscar_home') as busca, contextlib.redirect_stderr(io.StringIO()) as saida:
