@@ -2,7 +2,7 @@
 
 # Invada seu próprio app — kit defensivo
 
-[![Invada seu próprio app](guia/assets/banner-es.jpg)](https://inematds.github.io/invada-seu-proprio-app/guia/es/)
+[![Invada seu próprio app](guia/assets/banner-es.jpg)](https://linnoff88-dev.github.io/arckhe-/guia/es/)
 
 **🇧🇷 [Português](README.md) · 🇺🇸 [English](README.en.md) · 🇪🇸 Español**
 
@@ -12,7 +12,7 @@ Invada seu próprio app es un kit de revisión defensiva con un verificador, cin
 
 ## 📖 Guía de uso
 
-https://inematds.github.io/invada-seu-proprio-app/guia/es/
+https://linnoff88-dev.github.io/arckhe-/guia/es/
 
 ¿Construiste una app con IA y quieres revisar lo que quedó expuesto? Este kit ayuda a buscar señales, corregir decisiones inseguras en el servidor y repetir las pruebas antes de publicar. Fue escrito para quien sabe editar la app, pero no trabaja con seguridad todos los días.
 
@@ -39,6 +39,6 @@ El verificador hace un único GET, sin seguir redirecciones, sin login y sin env
 
 Usa los [prompts de prueba simulada e informe visual](kit/prompts/pentest-do-seu-app.md) para organizar la revisión. Los [ejemplos locales](kit/exemplos/) son demostrativos y no tienen backend. El ejemplo vulnerable no ejecuta scripts recibidos ni envía datos.
 
-[Dirección de la guía](https://inematds.github.io/invada-seu-proprio-app/guia/es/) — referencia de publicación; la página de la guía no forma parte de este kit.
+[Dirección de la guía](https://linnoff88-dev.github.io/arckhe-/guia/es/) — referencia de publicación; la página de la guía no forma parte de este kit.
 
 Python 3, sin dependencias adicionales. Contenido autoral. Licencia [MIT](LICENSE).

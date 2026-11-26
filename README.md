@@ -8,7 +8,7 @@
 </div>
 
 
-[![Invada seu prêÂ³prio app](guia/assets/banner.jpg)](https://inematds.github.io/invada-seu-proprio-app/guia/)
+[![Invada seu prêÂ³prio app](guia/assets/banner.jpg)](https://linnoff88-dev.github.io/arckhe-/guia/)
 
 **ê°Å¸â¡Â§ê°Å¸â¡Â· [PortuguêÂªs](README.md) êÂ· ê°Å¸â¡Âºê°Å¸â¡Â¸ [English](README.en.md) êÂ· ê°Å¸â¡Âªê°Å¸â¡Â¸ [EspaêÂ±ol](README.es.md)**
 
@@ -18,7 +18,7 @@ Invada seu prêÂ³prio app êÂ© um kit de revisêÂ£o defensiva com um
 
 ## ê°Å¸ââ Guia de uso
 
-https://inematds.github.io/invada-seu-proprio-app/guia/
+https://linnoff88-dev.github.io/arckhe-/guia/
 
 Construiu um app com IA e quer conferir o que ficou exposto? Este kit ajuda a procurar sinais, corrigir decisêÂµes inseguras no servidor e repetir os testes antes de publicar. Foi escrito para quem consegue editar o app, mas nêÂ£o trabalha com seguranêÂ§a todos os dias.
 
@@ -45,13 +45,13 @@ O verificador faz um êÂºnico GET, sem seguir redirecionamentos, sem login e
 
 Use os [prompts de teste simulado e relatêÂ³rio visual](kit/prompts/pentest-do-seu-app.md) para organizar a revisêÂ£o. Os [exemplos locais](kit/exemplos/) sêÂ£o demonstrativos e nêÂ£o têÂªm backend. O exemplo vulnerêÂ¡vel nêÂ£o executa scripts recebidos nem envia dados.
 
-[EndereêÂ§o do guia](https://inematds.github.io/invada-seu-proprio-app/guia/) ê¢â¬â referêÂªncia de publicaêÂ§êÂ£o; a pêÂ¡gina do guia nêÂ£o faz parte deste kit.
+[EndereêÂ§o do guia](https://linnoff88-dev.github.io/arckhe-/guia/) ê¢â¬â referêÂªncia de publicaêÂ§êÂ£o; a pêÂ¡gina do guia nêÂ£o faz parte deste kit.
 
 Python 3, sem dependêÂªncias adicionais. ConteêÂºdo autoral. LicenêÂ§a [MIT](LICENSE).
 
 ## VêÂ­deo
 
-[Assista no YouTube](https://www.youtube.com/watch?v=UDAJ66IITq0) êÂ· [Short 9:16](https://youtube.com/shorts/FeB3cM4KULo) êÂ· [Player com legendas e capêÂ­tulos](https://inematds.github.io/invada-seu-proprio-app/videos/)
+[Assista no YouTube](https://www.youtube.com/watch?v=UDAJ66IITq0) êÂ· [Short 9:16](https://youtube.com/shorts/FeB3cM4KULo) êÂ· [Player com legendas e capêÂ­tulos](https://linnoff88-dev.github.io/arckhe-/videos/)
 
 ---
 

@@ -2,7 +2,7 @@
 
 # Hack your own app — defensive kit
 
-[![Hack your own app](guia/assets/banner-en.jpg)](https://inematds.github.io/invada-seu-proprio-app/guia/en/)
+[![Hack your own app](guia/assets/banner-en.jpg)](https://linnoff88-dev.github.io/arckhe-/guia/en/)
 
 **🇧🇷 [Português](README.md) · 🇺🇸 English · 🇪🇸 [Español](README.es.md)**
 
@@ -12,7 +12,7 @@ Hack your own app is a defensive review kit with a checker, five gap guides and 
 
 ## 📖 How to use
 
-https://inematds.github.io/invada-seu-proprio-app/guia/en/
+https://linnoff88-dev.github.io/arckhe-/guia/en/
 
 Built an app with AI and want to check what ended up exposed? This kit helps you look for signs, fix insecure decisions on the server and repeat the tests before publishing. It was written for people who can edit the app, but do not work with security every day.
 
@@ -39,6 +39,6 @@ The checker makes a single GET, without following redirects, without login and w
 
 Use the [simulated test and visual report prompts](kit/prompts/pentest-do-seu-app.md) to organize the review. The [local examples](kit/exemplos/) are demonstrative and have no backend. The vulnerable example does not run received scripts or send data.
 
-[Guide address](https://inematds.github.io/invada-seu-proprio-app/guia/en/) — publishing reference; the guide page is not part of this kit.
+[Guide address](https://linnoff88-dev.github.io/arckhe-/guia/en/) — publishing reference; the guide page is not part of this kit.
 
 Python 3, with no additional dependencies. Original content. [MIT](LICENSE) license.
